@@ -135,16 +135,56 @@ const CONTACT_INFO = {
 
 document.addEventListener("DOMContentLoaded", () => {
     const entryScreen = document.getElementById("entry-screen");
-    const mainContent = document.getElementById("main-content");
-    const enterBtn = document.getElementById("enter-btn");
     const categoryList = document.getElementById("category-list");
+    const activeWindow = document.getElementById("active-window");
+    const windowTitleBar = document.getElementById("window-title-bar");
+    const windowContentArea = document.getElementById("window-content-area");
+    const sidebarContact = document.getElementById("sidebar-contact");
+    const footerCounter = document.getElementById("footer-counter");
+    const enterBtn = document.getElementById("enter-btn");
+    const mainContent = document.getElementById("main-content");
     const windowTitle = document.getElementById("window-title-bar");
     const windowBody = document.getElementById("window-content-area");
 
-    // Verificar si ya ingresó en esta sesión
-    if (sessionStorage.getItem("introPlayed") === "true") {
+    // Lógica del contador de visitas (En memoria / LocalStorage para Github Pages)
+    const todayStr = new Date().toLocaleDateString();
+    let visitData = JSON.parse(localStorage.getItem('portfolioVisits')) || { date: todayStr, count: 0 };
+    
+    if (visitData.date !== todayStr) {
+        visitData = { date: todayStr, count: 0 };
+    }
+    
+    if (!sessionStorage.getItem('sessionCounted')) {
+        visitData.count += 1;
+        localStorage.setItem('portfolioVisits', JSON.stringify(visitData));
+        sessionStorage.setItem('sessionCounted', 'true');
+    }
+
+    const visitCountEl = document.getElementById('visit-count');
+    if (visitCountEl) {
+        // Genera un número base pseudoaleatorio basado en el día para simular tráfico orgánico
+        const dateSeed = new Date().getDate() * (new Date().getMonth() + 1);
+        const baseVisits = Math.floor(Math.abs(Math.sin(dateSeed)) * 42) + 7;
+        visitCountEl.innerText = baseVisits + visitData.count;
+    }
+
+    // Logic for hiding entry screen
+    enterBtn.addEventListener("click", () => {
+        const audio = new Audio("assets/startup.mp3");
+        audio.play().catch(e => console.log("Audio play failed:", e));
+        
         entryScreen.classList.add("hidden");
         mainContent.classList.remove("hidden");
+        if (footerCounter) footerCounter.classList.remove("hidden");
+        
+        sessionStorage.setItem("introSeen", "true");
+    });
+
+    // Verificar si ya ingresó en esta sesión
+    if (sessionStorage.getItem("introSeen") === "true" || sessionStorage.getItem("introPlayed") === "true") {
+        entryScreen.classList.add("hidden");
+        mainContent.classList.remove("hidden");
+        if (footerCounter) footerCounter.classList.remove("hidden");
     }
 
     // Renderizar categorías

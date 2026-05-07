@@ -140,33 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const windowTitleBar = document.getElementById("window-title-bar");
     const windowContentArea = document.getElementById("window-content-area");
     const sidebarContact = document.getElementById("sidebar-contact");
-    const footerCounter = document.getElementById("footer-counter");
     const enterBtn = document.getElementById("enter-btn");
     const mainContent = document.getElementById("main-content");
     const windowTitle = document.getElementById("window-title-bar");
     const windowBody = document.getElementById("window-content-area");
-
-    // Lógica del contador de visitas (En memoria / LocalStorage para Github Pages)
-    const todayStr = new Date().toLocaleDateString();
-    let visitData = JSON.parse(localStorage.getItem('portfolioVisits')) || { date: todayStr, count: 0 };
-    
-    if (visitData.date !== todayStr) {
-        visitData = { date: todayStr, count: 0 };
-    }
-    
-    if (!sessionStorage.getItem('sessionCounted')) {
-        visitData.count += 1;
-        localStorage.setItem('portfolioVisits', JSON.stringify(visitData));
-        sessionStorage.setItem('sessionCounted', 'true');
-    }
-
-    const visitCountEl = document.getElementById('visit-count');
-    if (visitCountEl) {
-        // Genera un número base pseudoaleatorio basado en el día para simular tráfico orgánico
-        const dateSeed = new Date().getDate() * (new Date().getMonth() + 1);
-        const baseVisits = Math.floor(Math.abs(Math.sin(dateSeed)) * 42) + 7;
-        visitCountEl.innerText = baseVisits + visitData.count;
-    }
 
     // Logic for hiding entry screen
     enterBtn.addEventListener("click", () => {
@@ -175,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         entryScreen.classList.add("hidden");
         mainContent.classList.remove("hidden");
-        if (footerCounter) footerCounter.classList.remove("hidden");
         
         sessionStorage.setItem("introSeen", "true");
     });
@@ -184,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (sessionStorage.getItem("introSeen") === "true" || sessionStorage.getItem("introPlayed") === "true") {
         entryScreen.classList.add("hidden");
         mainContent.classList.remove("hidden");
-        if (footerCounter) footerCounter.classList.remove("hidden");
     }
 
     // Renderizar categorías

@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     enterBtn.addEventListener("click", () => {
         if (sessionStorage.getItem("introPlayed") !== "true") {
-            const audio = new Audio("intro.mp3");
+            const audio = new Audio("assets/intro.mp3"); // fix ruta
             audio.volume = 0.25;
             audio.playbackRate = 1.1;
             audio.play().catch(err => console.error("Audio error:", err));

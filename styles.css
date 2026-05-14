@@ -9,10 +9,11 @@ body {
 
 #main-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
     gap: 20px;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -94,9 +95,16 @@ body {
     font-weight: bold;
 }
 
+#portfolio-homepage .category-item > span:first-child {
+    display: flex;
+    align-items: center;
+}
+
 #portfolio-homepage .category-icon {
     font-size: 16px;
     margin-right: 8px;
+    display: flex;
+    align-items: center;
 }
 
 /* Sidebar Contact Section */
@@ -118,7 +126,9 @@ body {
     font-size: 14px;
     text-transform: uppercase;
     margin-bottom: 0;
-    /* Reset margin since flex row handles it */
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .btn-download-cv {
@@ -214,7 +224,10 @@ body {
     padding: 12px;
     border-bottom: 2px solid #000000;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .window-body {
@@ -329,6 +342,17 @@ body {
     margin-top: 4px;
 }
 
+/* Soft Pastel Tech Badges */
+.tech-badge-lenguaje { background-color: #ffd1dc !important; }
+.tech-badge-backend { background-color: #bdfcc9 !important; }
+.tech-badge-frontend { background-color: #cce7ff !important; }
+.tech-badge-base-de-datos { background-color: #ffdfba !important; }
+.tech-badge-herramientas { background-color: #e2c2ff !important; }
+.tech-badge-cloud { background-color: #d1f2fd !important; }
+.tech-badge-ci-cd { background-color: #fce4ec !important; }
+.tech-badge-iac { background-color: #e8f5e9 !important; }
+.tech-badge-os { background-color: #fff9c4 !important; }
+
 /* Project Gallery Styles */
 .project-header {
     margin-bottom: 15px;
@@ -343,44 +367,48 @@ body {
 }
 
 .project-gallery {
-    column-count: 2;
-    column-gap: 20px;
+    column-width: 250px;
+    column-gap: 16px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
 .project-img-card {
-    background-color: #FFFBF0;
-    border: 2px solid #000000;
-    padding: 8px;
-    box-shadow: 4px 4px 0px #000000;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     break-inside: avoid;
-    display: block;
-    width: calc(100% - 4px);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
 }
 
 .project-img-card img {
     width: 100%;
     height: auto;
     display: block;
-    border: 1px solid #000000;
+    border-radius: 16px;
+    border: none;
 }
 
 .zoomable-img {
     cursor: zoom-in;
-    transition: transform 0.2s;
+    transition: filter 0.2s;
 }
 
 .zoomable-img:hover {
-    transform: scale(1.02);
+    filter: brightness(0.85);
 }
 
 .project-img-caption {
-    font-size: 12px;
-    text-align: center;
-    margin-top: 8px;
+    font-size: 14px;
     font-weight: bold;
+    text-align: left;
+    margin-top: 8px;
+    padding: 0 8px;
+    color: #000;
 }
 
 /* Image Modal */
@@ -490,6 +518,79 @@ body {
     transition: all 0.1s;
 }
 
+/* =========================================
+   Responsive Design (Tablets & Mobile)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    #main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #portfolio-homepage {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .windows-container {
+        max-width: 100%;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-gallery {
+        column-count: 1; /* Pinterest masonry a 1 sola columna en móviles */
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .image-modal-content {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        border: none;
+    }
+
+    .modal-header {
+        padding: 15px 10px;
+    }
+    
+    .modal-gallery-container {
+        flex-grow: 1;
+    }
+    
+    .modal-nav {
+        padding: 10px 10px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #entry-screen button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .tech-filters {
+        justify-content: center;
+    }
+
+    .project-tags-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .project-tags-nav button {
+        width: 100%;
+    }
+}
+
 .close-modal:hover {
     background-color: #FFF2CC;
     transform: translate(1px, 1px);
@@ -597,4 +698,41 @@ body {
 
 .window-animate {
     animation: genieEffect 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.03) forwards;
+}
+
+/* Floating Cat Button */
+#floating-cat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in, transform 0.2s;
+    background-color: #FFFBF0;
+}
+
+#floating-cat-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#floating-cat-btn:hover {
+    transform: translate(-2px, -2px);
+}
+
+#floating-cat-btn:active {
+    transform: translate(2px, 2px);
+}
+
+#floating-cat-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

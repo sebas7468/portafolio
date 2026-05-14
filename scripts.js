@@ -25,21 +25,21 @@ const TECH_STACK = [
 const PORTFOLIO_DATA = {
     "sobre-mi": {
         title: "Sobre mi",
-        icon: "[ i ]",
-        content: `Soy Sebastián Arteaga, <strong>Desarrollador de software junior</strong> de 25 años con experiencia en arquitectura y diseño de software en la nube e inteligencia artificial. He construido sistemas web (React, TypeScript), sistemas backend APIs RESTful con Express.js y ASP.NET Core, y procesos ETL para análisis de datos. Manejo avanzado de bases de datos relacionales en SQL Server y PostgreSQL.
+        icon: '<i data-lucide="user"></i>',
+        content: `Soy Sebastián Arteaga, <strong>Desarrollador de software junior</strong>, con experiencia en arquitectura y diseño de software en la nube e inteligencia artificial. He construido sistemas web (React, TypeScript), sistemas backend APIs RESTful con Express.js y ASP.NET Core, y procesos ETL para análisis de datos. Manejo avanzado de bases de datos relacionales en SQL Server y PostgreSQL.
         <br><br>
         <strong>Mi Stack Tecnológico:</strong>
         <div class="tech-filters" id="tech-filters">
             <button class="tech-filter-btn active" data-filter="all">Todos</button>
-            <button class="tech-filter-btn" data-filter="Lenguaje">Lenguajes</button>
-            <button class="tech-filter-btn" data-filter="Backend">Backend</button>
-            <button class="tech-filter-btn" data-filter="Frontend">Frontend</button>
-            <button class="tech-filter-btn" data-filter="Base de Datos">Base de Datos</button>
-            <button class="tech-filter-btn" data-filter="Herramientas">Herramientas</button>
-            <button class="tech-filter-btn" data-filter="Cloud">Cloud</button>
-            <button class="tech-filter-btn" data-filter="CI/CD">CI/CD</button>
-            <button class="tech-filter-btn" data-filter="IaC">IaC</button>
-            <button class="tech-filter-btn" data-filter="OS">OS</button>
+            <button class="tech-filter-btn tech-badge-lenguaje" data-filter="Lenguaje">Lenguajes</button>
+            <button class="tech-filter-btn tech-badge-backend" data-filter="Backend">Backend</button>
+            <button class="tech-filter-btn tech-badge-frontend" data-filter="Frontend">Frontend</button>
+            <button class="tech-filter-btn tech-badge-base-de-datos" data-filter="Base de Datos">Base de Datos</button>
+            <button class="tech-filter-btn tech-badge-herramientas" data-filter="Herramientas">Herramientas</button>
+            <button class="tech-filter-btn tech-badge-cloud" data-filter="Cloud">Cloud</button>
+            <button class="tech-filter-btn tech-badge-ci-cd" data-filter="CI/CD">CI/CD</button>
+            <button class="tech-filter-btn tech-badge-iac" data-filter="IaC">IaC</button>
+            <button class="tech-filter-btn tech-badge-os" data-filter="OS">OS</button>
         </div>
         <div class="tech-grid" id="tech-grid">
             <!-- Tech items will be injected here -->
@@ -48,7 +48,7 @@ const PORTFOLIO_DATA = {
     },
     "proyectos": {
         title: "Proyectos",
-        icon: "[ # ]",
+        icon: '<i data-lucide="briefcase"></i>',
         content: `
         <div class="project-header">
             <h3 style="margin-top: 0; margin-bottom: 5px;">Mis proyectos son:</h3>
@@ -82,11 +82,14 @@ const PORTFOLIO_DATA = {
                     <li><strong>Autorización Backend:</strong> La API RESTful verifica la validez del token y evalúa los permisos internos del usuario según sus roles.</li>
                     <li><strong>Persistencia Segura:</strong> La API interactúa con la base de datos (MS SQL Server) utilizando una Identidad Administrada (MI), y se integra con servicios de comunicación (ACS), todo contenido dentro de un grupo de recursos (rg-bodega).</li>
                 </ol>
-                <img src="assets/bodegabox/arquitectura.png" alt="Diagrama de Arquitectura de Seguridad y Flujo" class="zoomable-img" style="max-width: 100%; border: 2px solid #000; box-shadow: 3px 3px 0px #000; margin-top: 10px; display: block; cursor: zoom-in;">
             </div>
 
             <h4 style="margin-bottom: 5px; border-bottom: 1px solid #000; display: inline-block;">Galería del Sistema</h4>
             <div class="project-gallery">
+                <div class="project-img-card">
+                    <img src="assets/bodegabox/arquitectura.png" alt="Diagrama de Arquitectura de Seguridad y Flujo" class="zoomable-img">
+                    <div class="project-img-caption">Arquitectura de Seguridad y Flujo</div>
+                </div>
                 <div class="project-img-card">
                     <img src="assets/bodegabox/inicio_sesion.png" alt="Login con Entra ID" class="zoomable-img">
                     <div class="project-img-caption">Autenticación Microsoft Entra ID</div>
@@ -116,16 +119,43 @@ const PORTFOLIO_DATA = {
         </div>
         `
     },
+    "certificaciones": {
+        title: "Certificaciones y Cursos",
+        icon: '<i data-lucide="award"></i>',
+        content: `
+        <h3 style="margin-bottom: 15px; border-bottom: 2px solid #000;">Certificaciones y Cursos</h3>
+        <div class="project-gallery">
+            <div class="project-img-card">
+                <img src="assets/scrum_udemy.jpg" alt="Scrum - Udemy" class="zoomable-img">
+                <div class="project-img-caption">
+                    Scrum - Udemy<br>
+                    <a href="https://www.udemy.com/certificate/UC-29062571-e0cd-4a33-b410-29d99e3f5985/" target="_blank" class="contact-link-text">Ver Certificado</a>
+                </div>
+            </div>
+            <div class="project-img-card">
+                <img src="assets/knowhub.jpg" alt="Knowhub" class="zoomable-img">
+                <div class="project-img-caption">Knowhub</div>
+            </div>
+            <div class="project-img-card">
+                <img src="assets/efset.jpg" alt="EFSET" class="zoomable-img">
+                <div class="project-img-caption">
+                    EFSET<br>
+                    <a href="https://cert.efset.org/en/AhUYFw" target="_blank" class="contact-link-text">Ver Certificado</a>
+                </div>
+            </div>
+        </div>
+        `
+    },
     "curriculum": {
         title: "Curriculum",
-        icon: "[ = ]",
+        icon: '<i data-lucide="file-text"></i>',
         content: `<iframe src="assets/CV_Sebastian_Arteaga_Profesional_Informatica.pdf#navpanes=0&view=FitH" width="100%" height="1150px" style="border: none; display: block;"></iframe>`
     }
 };
 
 const CONTACT_INFO = {
     title: "Contacto",
-    icon: "[ @ ]",
+    icon: '<i data-lucide="contact"></i>',
     links: [
         { label: "Email", val: "sebastian.arteaga.0001@gmail.com", url: "mailto:sebastian.arteaga.0001@gmail.com", logo: "assets/correo.png" },
         { label: "LinkedIn", val: "linkedin.com/in/sarteaga-garcia", url: "https://linkedin.com/in/sarteaga-garcia", logo: "assets/linkedin.png" },
@@ -149,10 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
     enterBtn.addEventListener("click", () => {
         const audio = new Audio("assets/startup.mp3");
         audio.play().catch(e => console.log("Audio play failed:", e));
-        
+
         entryScreen.classList.add("hidden");
         mainContent.classList.remove("hidden");
-        
+
         sessionStorage.setItem("introSeen", "true");
     });
 
@@ -202,6 +232,10 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
+    if (window.lucide) {
+        lucide.createIcons();
+    }
+
     function updateWindow(key, clickedElement = null) {
         const data = PORTFOLIO_DATA[key];
         if (!data) return;
@@ -232,6 +266,10 @@ document.addEventListener("DOMContentLoaded", () => {
         windowTitle.innerHTML = `<span style="font-weight: normal;">${data.icon}</span> ${data.title}`;
         windowBody.innerHTML = data.content;
 
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
         if (key === "sobre-mi") {
             const grid = document.getElementById("tech-grid");
             const filterBtns = document.querySelectorAll(".tech-filter-btn");
@@ -242,7 +280,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="tech-card">
                             <img src="${tech.icon}" alt="${tech.name}" class="tech-icon">
                             <div class="tech-name">${tech.name}</div>
-                            <div class="tech-tags">${tech.tags.map(t => `<span class="tech-badge">${t}</span>`).join('')}</div>
+                            <div class="tech-tags">${tech.tags.map(t => `<span class="tech-badge tech-badge-${t.toLowerCase().replace(/[^a-z0-9]/g, '-')}">${t}</span>`).join('')}</div>
                         </div>
                     `).join('');
             };
@@ -291,86 +329,92 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.addEventListener('click', () => showProject(btn.dataset.target, true));
             });
 
-            // Lógica de galería modal con flechas
-            const zoomableImages = Array.from(document.querySelectorAll('.zoomable-img'));
-            zoomableImages.forEach((img, index) => {
-                img.addEventListener('click', () => {
-                    let currentIndex = index;
+        }
 
-                    // Identify the active project title for context
+        // Lógica de galería modal con flechas
+        const zoomableImages = Array.from(document.querySelectorAll('.zoomable-img'));
+        zoomableImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                let currentIndex = index;
+
+                // Identify the active title for context
+                let projectTitle = "Vista de Imagen";
+                if (key === "proyectos") {
                     const activeProjectId = sessionStorage.getItem("activeProject") || "proj-bodegabox";
                     const projectTitleEl = document.querySelector(`#${activeProjectId} h3`);
-                    const projectTitle = projectTitleEl ? projectTitleEl.innerText : "Vista de Imagen";
+                    if (projectTitleEl) projectTitle = projectTitleEl.innerText;
+                } else {
+                    projectTitle = data.title;
+                }
 
-                    const modal = document.createElement('div');
-                    modal.className = 'image-modal';
-                    modal.innerHTML = `
-                        <div class="image-modal-content">
-                            <div class="modal-header">
-                                <span class="modal-title">${projectTitle}</span>
-                                <span class="close-modal">[ X ] Cerrar</span>
-                            </div>
-                            <div class="modal-gallery-container">
-                                <button class="modal-nav prev-btn">&#9664;</button>
-                                <img src="${img.src}" alt="${img.alt}" id="modal-img" />
-                                <button class="modal-nav next-btn">&#9654;</button>
-                            </div>
+                const modal = document.createElement('div');
+                modal.className = 'image-modal';
+                modal.innerHTML = `
+                    <div class="image-modal-content">
+                        <div class="modal-header">
+                            <span class="modal-title">${projectTitle}</span>
+                            <span class="close-modal">[ X ] Cerrar</span>
                         </div>
-                    `;
-                    document.body.appendChild(modal);
+                        <div class="modal-gallery-container">
+                            <button class="modal-nav prev-btn">&#9664;</button>
+                            <img src="${img.src}" alt="${img.alt}" id="modal-img" />
+                            <button class="modal-nav next-btn">&#9654;</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
 
-                    const modalImg = modal.querySelector('#modal-img');
-                    const galleryContainer = modal.querySelector('.modal-gallery-container');
+                const modalImg = modal.querySelector('#modal-img');
+                const galleryContainer = modal.querySelector('.modal-gallery-container');
 
-                    const updateImage = (newIndex) => {
-                        currentIndex = newIndex;
-                        if (currentIndex < 0) currentIndex = zoomableImages.length - 1;
-                        if (currentIndex >= zoomableImages.length) currentIndex = 0;
+                const updateImage = (newIndex) => {
+                    currentIndex = newIndex;
+                    if (currentIndex < 0) currentIndex = zoomableImages.length - 1;
+                    if (currentIndex >= zoomableImages.length) currentIndex = 0;
 
-                        const newImgSource = zoomableImages[currentIndex];
-                        modalImg.src = newImgSource.src;
-                        modalImg.alt = newImgSource.alt;
+                    const newImgSource = zoomableImages[currentIndex];
+                    modalImg.src = newImgSource.src;
+                    modalImg.alt = newImgSource.alt;
 
-                        if (newImgSource.naturalWidth < 500) {
-                            galleryContainer.style.backgroundColor = '#000';
-                        } else {
-                            galleryContainer.style.backgroundColor = '#FFFBF0';
-                        }
-                    };
-
-                    // Asegurarse de aplicar el fondo correcto a la primera imagen al abrir el modal
-                    if (img.naturalWidth < 500) {
+                    if (newImgSource.naturalWidth < 500) {
                         galleryContainer.style.backgroundColor = '#000';
+                    } else {
+                        galleryContainer.style.backgroundColor = '#FFFBF0';
                     }
+                };
 
-                    const handleKeyDown = (e) => {
-                        if (e.key === "ArrowLeft") updateImage(currentIndex - 1);
-                        else if (e.key === "ArrowRight") updateImage(currentIndex + 1);
-                        else if (e.key === "Escape") closeModal();
-                    };
-                    document.addEventListener("keydown", handleKeyDown);
+                // Asegurarse de aplicar el fondo correcto a la primera imagen al abrir el modal
+                if (img.naturalWidth < 500) {
+                    galleryContainer.style.backgroundColor = '#000';
+                }
 
-                    modal.querySelector('.prev-btn').addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        updateImage(currentIndex - 1);
-                    });
+                const handleKeyDown = (e) => {
+                    if (e.key === "ArrowLeft") updateImage(currentIndex - 1);
+                    else if (e.key === "ArrowRight") updateImage(currentIndex + 1);
+                    else if (e.key === "Escape") closeModal();
+                };
+                document.addEventListener("keydown", handleKeyDown);
 
-                    modal.querySelector('.next-btn').addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        updateImage(currentIndex + 1);
-                    });
+                modal.querySelector('.prev-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateImage(currentIndex - 1);
+                });
 
-                    const closeModal = () => {
-                        document.removeEventListener("keydown", handleKeyDown);
-                        modal.remove();
-                    };
-                    modal.querySelector('.close-modal').addEventListener('click', closeModal);
-                    modal.addEventListener('click', (e) => {
-                        if (e.target === modal) closeModal();
-                    });
+                modal.querySelector('.next-btn').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updateImage(currentIndex + 1);
+                });
+
+                const closeModal = () => {
+                    document.removeEventListener("keydown", handleKeyDown);
+                    modal.remove();
+                };
+                modal.querySelector('.close-modal').addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
                 });
             });
-        }
+        });
 
         // Guardar pestaña activa
         sessionStorage.setItem("activeTab", key);
@@ -380,21 +424,55 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedTab = sessionStorage.getItem("activeTab") || "sobre-mi";
     updateWindow(savedTab);
 
+    let globalIntroAudio = null;
+
     enterBtn.addEventListener("click", () => {
         if (sessionStorage.getItem("introPlayed") !== "true") {
-            const audio = new Audio("assets/intro.mp3"); // fix ruta
-            audio.volume = 0.25;
-            audio.playbackRate = 1.1;
-            audio.play().catch(err => console.error("Audio error:", err));
+            globalIntroAudio = new Audio("assets/intro.mp3"); // fix ruta
+            globalIntroAudio.volume = 0.22;
+            globalIntroAudio.playbackRate = 1.1;
+            globalIntroAudio.play().catch(err => console.error("Audio error:", err));
             sessionStorage.setItem("introPlayed", "true");
+
+            globalIntroAudio.addEventListener("ended", () => {
+                const floatingCatBtn = document.getElementById("floating-cat-btn");
+                if (floatingCatBtn && !mainContent.classList.contains("hidden")) {
+                    floatingCatBtn.classList.add("visible");
+                }
+            });
 
             // Pre-cargar PDF para que esté en cache cuando abran Curriculum
             const prefetch = document.createElement("link");
             prefetch.rel = "prefetch";
             prefetch.href = "CV_Sebastian_Arteaga_Profesional_Informatica.pdf";
             document.head.appendChild(prefetch);
+        } else {
+            const floatingCatBtn = document.getElementById("floating-cat-btn");
+            if (floatingCatBtn && (!globalIntroAudio || globalIntroAudio.ended)) {
+                floatingCatBtn.classList.add("visible");
+            }
         }
         entryScreen.classList.add("hidden");
         mainContent.classList.remove("hidden");
     });
+
+    const floatingCatBtn = document.getElementById("floating-cat-btn");
+    if (floatingCatBtn) {
+        floatingCatBtn.addEventListener("click", () => {
+            globalIntroAudio = new Audio("assets/intro.mp3");
+            globalIntroAudio.volume = 0.25;
+            globalIntroAudio.playbackRate = 1.1;
+            globalIntroAudio.play().catch(err => console.error("Audio error:", err));
+
+            globalIntroAudio.addEventListener("ended", () => {
+                if (!mainContent.classList.contains("hidden")) {
+                    floatingCatBtn.classList.add("visible");
+                }
+            });
+
+            floatingCatBtn.classList.remove("visible");
+            mainContent.classList.add("hidden");
+            entryScreen.classList.remove("hidden");
+        });
+    }
 });

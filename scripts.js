@@ -143,6 +143,13 @@ const PORTFOLIO_DATA = {
                     <a href="https://cert.efset.org/en/AhUYFw" target="_blank" class="contact-link-text">Ver Certificado</a>
                 </div>
             </div>
+            <div class="project-img-card">
+                <img src="https://placehold.co/600x400/FFFBF0/000000?text=Oracle+Next+Education%0AAlura" alt="Oracle Next Education" class="zoomable-img">
+                <div class="project-img-caption">
+                    Oracle Next Education F2 T6 Back-end<br>
+                    <a href="https://app.aluracursos.com/program/certificate/317be09e-a197-4d3f-a56f-f1c658611c86" target="_blank" class="contact-link-text">Ver Certificado</a>
+                </div>
+            </div>
         </div>
         `
     },
